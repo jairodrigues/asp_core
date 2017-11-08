@@ -1,39 +1,45 @@
-﻿<h1>Catálogo</h1>
+﻿@{
+    ViewData["Title"] = "Carrossel";
+}
+
+<h1>Catálogo</h1>
 <div id="my-carousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
+      
+    <div class="carousel-inner" role="listbox">        
         <div class="item active">
             <div class="row">
-                @for (int i = 1; i < 5; i++)
-                {                
-                <div class="col-md-3">
+               @for (int i = 0; i < 4; i++)
+                {
+                <div class="col-md-3">                  
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <img src="~/images/produtos/large_@(i).jpg" />
+                            <img src="~/images/produtos/large_@(Model[i].Id).jpg" />
                         </div>
                         <div class="panel-footer">
-                            <div>Camiseta @(i)</div>
-                            <div>R$ 59,90</div>
+                            <div>Camiseta @(Model[i].Nome)</div>
+                            <div>R$ @(Model[i].Preco)</div>
                             <div class="text-center">
                                 <a asp-action="carrinho">Adicionar</a>
                             </div>
                         </div>
-                    </div>
+                    </div>                   
                 </div>
                 }
             </div>
         </div>
+       
         <div class="item">
             <div class="row">
-                @for (int i = 5; i < 9; i++)
+               @for (int i = 4; i < 8; i++)
                 {
                     <div class="col-md-3">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <img src="~/images/produtos/large_@(i).jpg" />
+                                <img src="~/images/produtos/large_@(Model[i].Id).jpg" />
                             </div>
                             <div class="panel-footer">
-                                <div>Camiseta @(i)</div>
-                                <div>R$ 59,90</div>
+                                <div>Camiseta @(Model[i].Nome)</div>
+                                <div>R$ @(Model[i].Preco)</div>
                                 <div class="text-center">
                                     <a asp-action="carrinho">Adicionar</a>
                                 </div>
@@ -45,16 +51,16 @@
         </div>
         <div class="item">
             <div class="row">
-                @for (int i = 9; i < 10; i++)
+               @for (int i = 8; i < 9; i++)
                 {
                     <div class="col-md-3">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <img src="~/images/produtos/large_@(i).jpg" />
+                                <img src="~/images/produtos/large_@(Model[i].Id).jpg" />
                             </div>
                             <div class="panel-footer">
-                                <div>Camiseta @(i)</div>
-                                <div>R$ 59,90</div>
+                                <div>Camiseta @(Model[i].Nome)</div>
+                                <div>R$ @(Model[i].Preco)</div>
                                 <div class="text-center">
                                     <a asp-action="carrinho">Adicionar</a>
                                 </div>
@@ -65,6 +71,7 @@
             </div>
         </div>
     </div>
+   
     <!-- Controls -->
     <a class="left carousel-control" href="#my-carousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
