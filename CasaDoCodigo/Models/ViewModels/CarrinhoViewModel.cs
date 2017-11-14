@@ -18,7 +18,7 @@ namespace CasaDoCodigo.Models.ViewModels
 
         public CarrinhoViewModel(List<ItemPedido> itens)
         {
-            this.Itens = Itens;
+            this.Itens = itens;
         }
     }
 }
